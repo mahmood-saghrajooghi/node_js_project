@@ -18,23 +18,7 @@ exports.getProducts = (req, res, next) => {
 
 exports.getProduct = (req, res, next) => {
   const prodId = req.params.productId;
-
-  // alternative way of doing this
-  // using WHERE option 
-
-  // Product.findAll({where: {id: prodId}})
-  // .then(products => {
-  //   console.log(products[0]);
-  //   res.render('shop/product-detail', {
-  //     path: '/products',
-  //     pageTitle: 'Product | ' + products[0].title,
-  //     product: products[0]
-  //   })
-  // })
-  // .catch(err => {
-  //   console.log(err);
-  // })
-
+  
   Product.findByPk(prodId)
     .then((product) => {
       res.render('shop/product-detail', {
